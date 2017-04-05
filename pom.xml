@@ -9,7 +9,7 @@
     <groupId>com.sparkjava</groupId>
     <artifactId>spark-core</artifactId>
     <packaging>bundle</packaging>
-    <version>2.5.5</version>
+    <version>2.5.5.jetty-9.3.17.v20170317</version>
     <name>Spark</name>
     <description>A Sinatra inspired java web framework</description>
     <url>http://www.sparkjava.com</url>
@@ -35,6 +35,14 @@
         <powermock.version>1.6.4</powermock.version>
         <mockito.version>1.10.19</mockito.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>artifactory</id>
+            <name>web-maven</name>
+            <url>http://REPLACE_ME/artifactory/web-maven</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <!-- LOGGING DEPENDENCIES -->
@@ -152,6 +160,11 @@
         </resources>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
